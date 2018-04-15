@@ -16,3 +16,5 @@ image_load.py which references the landsat bands stored within it.
 This file contains the functions used to make color images out of multiple
 channels obtained from satellite imagery. It balances the levels to account for
 the fact that raw sensor data provides very dim images. It creates a directory
+called "results" which will be ignored when committing to GitHub as to not clutter
+the repo with generated images.
