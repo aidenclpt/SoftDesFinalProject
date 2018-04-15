@@ -3,6 +3,8 @@ import os
 import numpy as np
 
 def load_image(file_path):
+    """Takes in a file path and returns a list containing a list of pixel values
+    for each band in the list"""
 
     im = Image.open(file_path)
     bands = im.split()
@@ -10,8 +12,12 @@ def load_image(file_path):
     values = []
     for band in bands:
         values.append(band.load())
+    return values
 
 def balance_levels(red_channel, blue_channel, green_channel):
+    """Takes red, blue, and green pixel-arrays and returns balanced pixel values
+    to maximize contrast and produce somewhat more visually accurate images"""
+
     red_vector = []
     blue_vector = []
     green_vector = []
@@ -56,9 +62,14 @@ results_folder = 'results'
 if not os.path.exists(results_folder):
     os.makedirs(results_folder)
 
-#image_name = input("Enter Image Name") + '.png'
+#this is where you should put in the location of the folder the test folder the
+#images from the second repo are stored in.
+
 data_folder = '/home/aiden/Final_Project_Image_Repo/images/'
-def merge_landsat():
+def merge_landsat(data_folder):
+    """Merges landsat bands from the specified data folder, and stores them in
+    '/results' as a visual light image and an IR image"""
+
     name_1 = data_folder + 'band_1.png'
     name_2 = data_folder + 'band_2.png'
     name_3 = data_folder + 'band_3.png'
@@ -83,18 +94,13 @@ def merge_landsat():
     IR1 = band_6.split()[0]
     IR2 = band_7.split()[0]
 
-    """red_values = red.load()
+    red_values = red.load()
     blue_values = blue.load()
-    green_values = green.load()"""
-    #red_values, blue_values, green_values = balance_levels(red,blue,green)
+    green_values = green.load()
 
     NIR_values,IR1_values,IR2_values = balance_levels(NIR,IR1,IR2)
 
-    small_im_size = (7000,7000)
-
-    #search_image = Image.open(image_name)
-    #im_size = search_image.size
-
+    small_im_size = band_1.size
 
     color_im = Image.new('RGB', small_im_size)
     pixels = color_im.load()
@@ -113,6 +119,4 @@ def merge_landsat():
 
     IR_im.save('results/test_IR.png')
 
-
-"""for i in range(1,im_size(1)//small_im_size(1)):
-    for j in range(1,im_size(2)//small_im_size(2)):"""
+merge_landsat(data_folder)
