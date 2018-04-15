@@ -109,7 +109,7 @@ def merge_landsat(data_folder):
         for j in range(small_im_size[1]):
             pixels[i,j] = (red_values[i,j], green_values[i,j], blue_values[i,j])
 
-    color_im.save('images/test_color.png')
+    color_im.save('results/test_color.png')
 
     IR_im = Image.new('RGB', small_im_size)
     pixels = IR_im.load()
