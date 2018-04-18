@@ -94,9 +94,10 @@ def merge_landsat(data_folder):
     IR1 = band_6.split()[0]
     IR2 = band_7.split()[0]
 
-    red_values = red.load()
+    """red_values = red.load()
     blue_values = blue.load()
-    green_values = green.load()
+    green_values = green.load()"""
+    red_values, blue_values, green_values = balance_levels(red, blue, green)
 
     NIR_values,IR1_values,IR2_values = balance_levels(NIR,IR1,IR2)
 
