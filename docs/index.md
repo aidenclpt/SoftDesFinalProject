@@ -1,5 +1,9 @@
 ### Homepage
-
+<details>
+<summary>**Pages**</summary>
+<br>
+[Page 1](www.google.com)
+<details>
 ## Our Project Goal
 
 Our project converts image pixels to latitude and longitude in the real world
