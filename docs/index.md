@@ -1,9 +1,9 @@
 ### Homepage
-<details>
-<summary>**Pages**</summary>
+<**Pages**>
+<summary>Pages</summary>
 <br>
-[Page 1](www.google.com)
-<details>
+[I'm an inline-style link](https://www.google.com)
+<**Pages**>
   
 ## Our Project Goal
 
