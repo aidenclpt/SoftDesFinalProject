@@ -3,7 +3,7 @@ Satelite Image Processing
 By Aiden Carley-Clopton, Grace Montagnino, and Richard run_docstring_examples
 
 #Dependencies
- PIL, os, numpy, cv2
+ PIL, os, numpy, cv2, utm
 
 # Image Repo
 The small to medium sized images in this project are stored in a second github

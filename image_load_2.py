@@ -2,7 +2,7 @@ import cv2
 import numpy as np
 import os
 
-def load_image(file_path):
+def load_image(file_path, brightness = 70, contrast = 0):
     """Takes in a file path and returns a numpy array containing a list of pixel values
     for each band in the list"""
 
@@ -18,9 +18,18 @@ def load_image(file_path):
     equalized = np.zeros((im.shape[0], im.shape[1], len(res)))
 
     for i in range(equalized.shape[2]):
-        equalized[:,:,i] = res[i]
+        equalized[:,:,i] = res[i] + brightness
+    #return equalized
+    lab = cv2.cvtColor(equalized, cv2.COLOR_BGR2LAB)
 
-    return equalized
+    l, a, b = cv2.split(lab)
+    clahe = cv2.createCLAHE(clipLimit=3.0, tileGridSize=(8,8))
+    cl = clahe.apply(l)
+
+    limg = cv2.merge((cl,a,b))
+    final = cv2.cvtColor(limg, cv2.COLOR_LAB2BGR)
+
+    return final
 
 def merge_bands(red_file_name, blue_file_name, green_file_name, output_name):
     """Takes in three images at he specified paths (assumed to be grayscale) and
@@ -34,6 +43,7 @@ def merge_bands(red_file_name, blue_file_name, green_file_name, output_name):
     merged = cv2.merge((red_values[:,:,0], blue_values[:,:,0], green_values[:,:,0]))
 
     cv2.imwrite(output_name, merged)
+
 
 
 if __name__ == '__main__':
