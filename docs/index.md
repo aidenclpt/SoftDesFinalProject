@@ -1,5 +1,5 @@
 ### Homepage  
-**Pages:**|[GIS](https://rickyroze.github.io/SoftDesFinalProject/GIS "GIS info page")|[Map Page](https://rickyroze.github.io/SoftDesFinalProject/MapPage)|[Technical Page](https://rickyroze.github.io/SoftDesFinalProject/TechnicalPage)|
+**Pages:** | [GIS](https://rickyroze.github.io/SoftDesFinalProject/GIS "GIS info page") | [Map Page](https://rickyroze.github.io/SoftDesFinalProject/MapPage) | [Technical Page](https://rickyroze.github.io/SoftDesFinalProject/TechnicalPage) | [Resilts Page](rickyroze.github.io/SoftDesFinalProject/ResultsPage) |
 ## Our Project Goal
 
 Our project converts image pixels to latitude and longitude in the real world
