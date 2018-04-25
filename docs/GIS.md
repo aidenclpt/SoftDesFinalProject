@@ -3,3 +3,5 @@
 + Shows with color balance and without image
 + Snippets of code to show what is being done to image
 + Shows how each pixel is mapped to a latitude/longitude
+ 
+[***Home***](https://rickyroze.github.io/SoftDesFinalProject/)
