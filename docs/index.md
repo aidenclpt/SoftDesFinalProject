@@ -3,7 +3,7 @@
 
 ### What does Out Project Do?
 
-    Our project is a tool for taking in satellite images in a "GIS Ready Bundle"
+Our project is a tool for taking in satellite images in a "GIS Ready Bundle"
 (containing a .wld file and .xml file with image metadata, as would be
 downloaded from a source of satellite images, such as the USGS) and translating
 the size of features in the image to their size and location in the real world.
@@ -13,7 +13,7 @@ the Google Maps API to find nearby features to coordinates selected in the image
 
 ### Why does Our Project Matter?
 
-    This piece of software provides the user with a versatile platform to go
+This piece of software provides the user with a versatile platform to go
 from readily available satellite images to sizes in the real world. Existing
 services offer the ability to measure distance between points and along mapped
 roads, however our software allows more versatility with the ability for the
