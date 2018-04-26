@@ -13,6 +13,6 @@ The GIS portion of our code starts by parsing metadata. A world file (.wld) look
     496748.3682234660 
     4427796.8562399521
    
-These values represent the x resulution, rotation, y resolution and UTM northing and easting of the top left corner.
+These values represent the x resulution, rotation, y resolution and UTM northing and easting of the top left corner. In this case, each pixel is 4.2m in the x and y direction. This can then be used to find the position of a given pixel in the real world in UTM coordinates. From this the python utm library allows us to translate those coordinates to GPS.
 
 [***Home***](https://rickyroze.github.io/SoftDesFinalProject/)
