@@ -6,7 +6,7 @@
 
 The GIS portion of our code starts by parsing metadata. A world file (.wld) looks like this
 
-   4.0200000000 \n
+   4.0200000000 \newline
    0.0000000000 \n
    0.0000000000 \n
    -4.0200000000 \n
