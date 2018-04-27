@@ -3,12 +3,15 @@ How the Program Works:
 + The general flow of the program can be broken into three modules. The Image Processing, the Google Maps API, and the GUI. The flow of information goes from the Image Processing to the Maps API and ends in the GUI. Below we have broekn down each of those three modules to give you a better sense of what happens in each.
 
 Image Processing
+
 ![](./flow_chart.png)
 
 Maps API
+
 ![](./flowchart.png)
 
 GUI
+
 ![](./Flow__Chart.png)
 
 Implementation: 
