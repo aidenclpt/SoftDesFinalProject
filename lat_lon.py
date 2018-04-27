@@ -2,6 +2,7 @@ import cv2
 import numpy as np
 import utm
 import os
+from shapely.geometry import Polygon
 
 
 class SatMap:
@@ -41,8 +42,11 @@ class SatMap:
         """Takes in a file path and returns a numpy array containing a list of pixel values
         for each band in the list"""
         file_path = self.image_location
-
+        print(file_path)
         im = cv2.imread(file_path)
+        """cv2.imshow('image',im)
+        cv2.waitkey(0)
+        cv2.killallwindows()"""
         self.image = im
         self.height = im.shape[0]
         self.width = im.shape[1]
@@ -87,20 +91,20 @@ class SatMap:
         self.x_width, self.y_width, self.easting, self.northing = self.parse_wld(self.wld_location)
 
 
-    def get_utm(self,x,y):
+    def get_utm(self,x,y, scale = 1):
         """Returns the UTM coordinates for given pixel locations x and y in the
         image"""
 
-        utm_easting = self.easting + x*self.x_width
-        utm_northing = self.northing + y*self.y_width
+        utm_easting = self.easting + x*self.x_width*scale
+        utm_northing = self.northing + y*self.y_width*scale
 
         return utm_easting, utm_northing
 
-    def get_lat_lon(self,x,y):
+    def get_lat_lon(self,x,y, scale = 1):
         """Returns lattitude and longitude coordinations for given pixel locations
         x and y in the image"""
 
-        utm_easting, utm_northing = self.get_utm(x,y)
+        utm_easting, utm_northing = self.get_utm(x,y, scale = scale)
         lat_lon = utm.to_latlon(utm_easting, utm_northing, self.zone_number, self.zone_letter)
 
         return lat_lon
@@ -109,7 +113,7 @@ class GeoPoint:
     """A point representing a physical location in a satellite image, located
     with pixel location, UTM coordinates, and lat-lon coordinates"""
 
-    def __init__(self, map, x, y, size = 10):
+    def __init__(self, map, x, y, size = 10, scale = 1):
         """makes a GoePoint object at """
         self.x = x
         self.y = y
@@ -125,14 +129,61 @@ class GeoLine:
         self.start = point1
         self.end = point2
 
-        self.pixel_length = ((start.x-end.x)**2 + (start.y-end.y)**2)**0.5
-        self.real_length = ((start.utm[0]-end.utm[0])**2 + (start.utm[1]-end.utm[1])**2)**0.5
+        self.pixel_length = ((self.start.x-self.end.x)**2 + (self.start.y-self.end.y)**2)**0.5
+        self.real_length = ((self.start.utm[0]-self.end.utm[0])**2 + (self.start.utm[1]-self.end.utm[1])**2)**0.5
+
+class GeoPoly:
+    """A polygon made up of GeoPoints used to find the length of complex paths and
+    the area of complex shapes"""
+
+    def __init__(self, point_list):
+        self.kinter_coords = []
+        self.shapely_coords = []
+
+        for point in point_list:
+            self.kinter_coords.append(point.x)
+            self.kinter_coords.append(point.y)
+
+            self.shapely_coords.append(point.utm)
+
+        self.shapely_coords = tuple(self.shapely_coords)
+        self.poly = Polygon(self.shapely_coords)
+        self.area = self.poly.area
+
+
+class GeoSegments:
+    """A series of segments meant to approximate a non-linear path drawn by the
+    user, primarily in order to find it's length"""
+
+    def __init__(self, point_list):
+        self.lines = []
+        self.length = 0
+
+        for i in range(len(point_list)-1):
+            line = GeoLine(point_list[i], point_list[i+1])
+            self.lines.append(line)
+            self.length += line.real_length
+
+    def get_length(self):
+        self.length = 0
+
+        for line in self.lines:
+            self.length += line.real_length
 
 
 
 
 
-directory = '/home/aiden/Final_Project_Image_Repo/images_with_metadata/'
+directory = '/home/aiden/Final_Project_Image_Repo/images_with_metadata/Vasquez/'
 
 test = SatMap(directory)
-p1 = GeoPoint()
+p1 = GeoPoint(test, 0, 0)
+p2 = GeoPoint(test, 0, 1)
+p3 = GeoPoint(test, 1, 1)
+p4 = GeoPoint(test, 1, 0)
+
+line = GeoLine(p1, p2)
+poly = GeoPoly([p1,p2,p3,p4])
+
+segments = GeoSegments([p1,p2,p3,p4])
+print(segments.length)
