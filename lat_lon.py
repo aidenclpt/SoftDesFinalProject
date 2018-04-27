@@ -94,7 +94,7 @@ class SatMap:
     def get_utm(self,x,y, scale = 1):
         """Returns the UTM coordinates for given pixel locations x and y in the
         image"""
-
+        self.scale = self.height/1080
         utm_easting = self.easting + x*self.x_width*scale
         utm_northing = self.northing + y*self.y_width*scale
 
@@ -104,6 +104,7 @@ class SatMap:
         """Returns lattitude and longitude coordinations for given pixel locations
         x and y in the image"""
 
+        self.scale = self.height/1080
         utm_easting, utm_northing = self.get_utm(x,y, scale = scale)
         lat_lon = utm.to_latlon(utm_easting, utm_northing, self.zone_number, self.zone_letter)
 
@@ -172,18 +173,18 @@ class GeoSegments:
 
 
 
-
-
-directory = '/home/aiden/Final_Project_Image_Repo/images_with_metadata/Vasquez/'
-
-test = SatMap(directory)
-p1 = GeoPoint(test, 0, 0)
-p2 = GeoPoint(test, 0, 1)
-p3 = GeoPoint(test, 1, 1)
-p4 = GeoPoint(test, 1, 0)
-
-line = GeoLine(p1, p2)
-poly = GeoPoly([p1,p2,p3,p4])
-
-segments = GeoSegments([p1,p2,p3,p4])
-print(segments.length)
+#
+# if __name__ == __main__:
+#     directory = '/home/aiden/Final_Project_Image_Repo/images_with_metadata/Vasquez/'
+#
+#     test = SatMap(directory)
+#     p1 = GeoPoint(test, 0, 0)
+#     p2 = GeoPoint(test, 0, 1)
+#     p3 = GeoPoint(test, 1, 1)
+#     p4 = GeoPoint(test, 1, 0)
+#
+#     line = GeoLine(p1, p2)
+#     poly = GeoPoly([p1,p2,p3,p4])
+#
+#     segments = GeoSegments([p1,p2,p3,p4])
+#     print(segments.length)
