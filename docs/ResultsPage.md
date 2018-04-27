@@ -13,6 +13,7 @@ you would like to look into.
 
 The next image demonstrates how a user can select a pixel in the image and have it display the coordinates
  in UTM.
+ 
 ![](./LocationsfromPoints.png)
 <!---
 This screenshot shows how a user can draw in paths and shapes to find distances and areas in real world dimensions!
