@@ -1,3 +1,4 @@
+**Pages:** | [***Home***](https://rickyroze.github.io/SoftDesFinalProject/) | [GIS](https://rickyroze.github.io/SoftDesFinalProject/GIS "GIS info page") | [Technical Page](https://rickyroze.github.io/SoftDesFinalProject/TechnicalPage) | [Results Page](https://rickyroze.github.io/SoftDesFinalProject/ResultsPage) | 
 ### Map Page
 To select an latitude/longitude to look up, simply click on the area in the satellite image you are interested in. The program will map this pixel to a longitude.latitude that Google Places can use to find further information.
 
