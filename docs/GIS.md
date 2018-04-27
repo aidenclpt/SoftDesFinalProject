@@ -1,3 +1,4 @@
+**Pages:** | [***Home***](https://rickyroze.github.io/SoftDesFinalProject/) | [Map Page](https://rickyroze.github.io/SoftDesFinalProject/MapPage) | [Technical Page](https://rickyroze.github.io/SoftDesFinalProject/TechnicalPage) | [Results Page](https://rickyroze.github.io/SoftDesFinalProject/ResultsPage) | 
 ### GIS
 + Shows before and after images of satellite image processed and not processed
 + Shows with color balance and without image
@@ -24,4 +25,3 @@ These values represent the x resulution, rotation, y resolution and UTM northing
 
             return utm_easting, utm_northing
 
-[***Home***](https://rickyroze.github.io/SoftDesFinalProject/)
