@@ -1,3 +1,4 @@
+**Pages:** | [***Home***](https://rickyroze.github.io/SoftDesFinalProject/) | [GIS](https://rickyroze.github.io/SoftDesFinalProject/GIS "GIS info page") | [Map Page](https://rickyroze.github.io/SoftDesFinalProject/MapPage) | [Technical Page](https://rickyroze.github.io/SoftDesFinalProject/TechnicalPage) | 
 ### Results Page
 Possible Use Cases:
 + If you wanted to determine the size of a building or a field, you could outline the area on the satellite image and the area would be returned!
