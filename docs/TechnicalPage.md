@@ -6,7 +6,6 @@ Image Processing
 ![](./flow_chart.png)
 
 Maps API
-
 ![](./flowchart.png)
 
 GUI
