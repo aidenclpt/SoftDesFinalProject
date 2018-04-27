@@ -2,13 +2,13 @@
 How the Program Works:
 + The general flow of the program can be broken into three modules. The Image Processing, the Google Maps API, and the GUI. The flow of information goes from the Image Processing to the Maps API and ends in the GUI. Below we have broekn down each of those three modules to give you a better sense of what happens in each.
 
-**Insert Image of Image Processing Flow Chart Here
+Image Processing
 ![]({{flow_chart.png"|SoftDesFinalProject/docs/flow_chart.png}})
 
-**Insert Image of Maps API flow chart here
+Maps API
 ![]({{flowchart.png"| SoftDesFinalProject/docs/flowchart.png }})
 
-**Insert image of GUI flowchart here
+GUI
 ![]({{Flow__Chart.png"|SoftDesFinalProject/docs/Flow__Chart.png}})
 
 Implementation: 
