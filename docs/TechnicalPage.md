@@ -6,6 +6,7 @@ Image Processing
 ![]({{flow_chart.png"|SoftDesFinalProject/docs/flow_chart.png}})
 
 Maps API
+
 ![]({{flowchart.png"| SoftDesFinalProject/docs/flowchart.png }})
 
 GUI
