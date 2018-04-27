@@ -5,27 +5,33 @@ import io
 
 YOUR_API_KEY = 'AIzaSyDQBb_fJ3Ppby0et4BAHtj-0Lvtpd97Dc0'
 geolocator = Nominatim()
-latlong="42,-71"
+latlong="39,-77"
+
+"""Reverse searches the Google Maps API,give it a latitude and longitude and returns an address"""
 location = geolocator.reverse(latlong)
 print(location.address)
-#print(location.raw)
+
+"""Searches google for nearby attractions as specified by user, ie. parks"""
 google_places = GooglePlaces(YOUR_API_KEY)
 query_result = google_places.nearby_search(
-    location=latlong, keyword='Restaurants',
-    radius=1000, types=[types.TYPE_RESTAURANT])
-
+    location=latlong, keyword='Park',
+    radius=2000, types=[types.TYPE_PARK])
 if query_result.has_attributions:
    print (query_result.html_attributions)
 
-
+"""For each google result, the program prints the address of the attraction, website, and rating"""
 for place in query_result.places:
-    # print (place.name)
-    # print (place.geo_location)
-    print (place.vicinity)
-    print(place.rating)
+    num=1
     place.get_details()
-    print (place.photos)
+    print (place.name)
+    print (place.vicinity)
+    print(place.website)
+    print(place.rating)
+    
+"""Prints one photo per attraction mentioned. More photos can be printed by editing the statement if num<2."""
     for photo in place.photos:
+        if num<2:
           photo.get(maxheight=500, maxwidth=500)
           image = Image.open(io.BytesIO(photo.data))
           image.show()
+          num=num+1
