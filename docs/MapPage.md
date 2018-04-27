@@ -5,7 +5,7 @@ After entering a search radius in meters, the program will give you the names of
 
 For example this image pops up as a local restaurant in Plymouth County Massachusetts:
 
-![]({{loc.png"|SoftDesFinalProject/docs/loc.png}})
+![](./loc.png)
 
 It also revelas the rating for the area, for Plymouth County the rating is: 3.9/5 stars
 
