@@ -8,7 +8,7 @@ For example this image pops up as a local restaurant in Plymouth County Massachu
 
 ![](./loc.png)
 
-It also revelas the rating for the area, for Plymouth County the rating is: 3.9/5 stars
+It also revelas the rating for the area (based on user reviews), for Plymouth County the rating is: 3.9/5 stars
 
 And finally, the neighborood is referred to as the West Bridgewater Area. 
 
