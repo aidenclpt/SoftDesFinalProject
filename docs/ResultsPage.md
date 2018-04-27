@@ -9,8 +9,8 @@ Here are some screen grabs of our program in action!
 This is an image of the file selector in our GUI which allows you to detemrine which satellite image you would like to look into.
 
 This is an image demonstrating how a user can select a pixel in the image, see how it maps to a longitude/latitude, and location.
-![](./LocationsfromPoints.png)
+![](./LocationsfromPoints.png | width=100)
 This screenshot shows how a user can draw in paths and shapes to find distances and areas in real world dimensions!
 
  
-[***Home***](https://rickyroze.github.io/SoftDesFinalProject/ | width=100)
+[***Home***](https://rickyroze.github.io/SoftDesFinalProject/)
