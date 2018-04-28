@@ -159,11 +159,11 @@ class GeoSegments:
     def __init__(self, point_list):
         self.lines = []
         self.length = 0
-
-        for i in range(len(point_list)-1):
-            line = GeoLine(point_list[i], point_list[i+1])
-            self.lines.append(line)
-            self.length += line.real_length
+        if len(point_list >= 2):
+            for i in range(len(point_list)-1):
+                line = GeoLine(point_list[i], point_list[i+1])
+                self.lines.append(line)
+                self.length += line.real_length
 
     def get_length(self):
         self.length = 0
@@ -173,18 +173,18 @@ class GeoSegments:
 
 
 
-#
-# if __name__ == __main__:
-#     directory = '/home/aiden/Final_Project_Image_Repo/images_with_metadata/Vasquez/'
-#
-#     test = SatMap(directory)
-#     p1 = GeoPoint(test, 0, 0)
-#     p2 = GeoPoint(test, 0, 1)
-#     p3 = GeoPoint(test, 1, 1)
-#     p4 = GeoPoint(test, 1, 0)
-#
-#     line = GeoLine(p1, p2)
-#     poly = GeoPoly([p1,p2,p3,p4])
-#
-#     segments = GeoSegments([p1,p2,p3,p4])
-#     print(segments.length)
+
+if __name__ == "__main__":
+    directory = '/home/aiden/Final_Project_Image_Repo/images_with_metadata/Vasquez/'
+
+    test = SatMap(directory)
+    p1 = GeoPoint(test, 0, 0)
+    p2 = GeoPoint(test, 0, 1)
+    p3 = GeoPoint(test, 1, 1)
+    p4 = GeoPoint(test, 1, 0)
+
+    line = GeoLine(p1, p2)
+    poly = GeoPoly([p1,p2,p3,p4])
+
+    segments = GeoSegments([p1,p2,p3,p4])
+    print(segments.length)
