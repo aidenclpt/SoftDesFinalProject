@@ -129,6 +129,10 @@ class GeoLine:
     def __init__(self, point1, point2):
         self.start = point1
         self.end = point2
+        self.x1 = self.start.x
+        self.y1 = self.start.y
+        self.x2 = self.end.x
+        self.y2 = self.end.y
 
         self.pixel_length = ((self.start.x-self.end.x)**2 + (self.start.y-self.end.y)**2)**0.5
         self.real_length = ((self.start.utm[0]-self.end.utm[0])**2 + (self.start.utm[1]-self.end.utm[1])**2)**0.5
@@ -140,16 +144,35 @@ class GeoPoly:
     def __init__(self, point_list):
         self.kinter_coords = []
         self.shapely_coords = []
+        self.point_list = point_list
 
-        for point in point_list:
-            self.kinter_coords.append(point.x)
-            self.kinter_coords.append(point.y)
+        if len(self.point_list) >=3:
+            for point in point_list:
+                self.kinter_coords.append(point.x)
+                self.kinter_coords.append(point.y)
 
-            self.shapely_coords.append(point.utm)
+                self.shapely_coords.append(point.utm)
 
-        self.shapely_coords = tuple(self.shapely_coords)
-        self.poly = Polygon(self.shapely_coords)
-        self.area = self.poly.area
+            self.shapely_coords = tuple(self.shapely_coords)
+            self.poly = Polygon(self.shapely_coords)
+            self.area = self.poly.area
+
+
+    def get_area(self):
+        self.area = 0
+        self.shapely_coords =list(self.shapely_coords)
+        if len(self.point_list) >=3:
+            for point in self.point_list:
+                self.kinter_coords.append(point.x)
+                self.kinter_coords.append(point.y)
+
+                self.shapely_coords.append(point.utm)
+
+            self.shapely_coords = tuple(self.shapely_coords)
+            self.poly = Polygon(self.shapely_coords)
+            self.area = self.poly.area
+
+        return self.area
 
 
 class GeoSegments:
@@ -157,20 +180,31 @@ class GeoSegments:
     user, primarily in order to find it's length"""
 
     def __init__(self, point_list):
+        self.kinter_coords = []
         self.lines = []
         self.length = 0
-        if len(point_list >= 2):
-            for i in range(len(point_list)-1):
-                line = GeoLine(point_list[i], point_list[i+1])
+        self.point_list = point_list
+        if len(self.point_list) >= 2:
+            for i in range(len(self.point_list)-1):
+                line = GeoLine(self.point_list[i], self.point_list[i+1])
                 self.lines.append(line)
                 self.length += line.real_length
 
     def get_length(self):
         self.length = 0
-
+        self.kinter_coords = []
+        if len(self.point_list) >= 2:
+            for i in range(len(self.point_list)-1):
+                line = GeoLine(self.point_list[i], self.point_list[i+1])
+                self.lines.append(line)
+                self.length += line.real_length
+        for point in self.point_list:
+            self.kinter_coords.append(point.x)
+            self.kinter_coords.append(point.y)
         for line in self.lines:
             self.length += line.real_length
 
+        return self.length
 
 
 
