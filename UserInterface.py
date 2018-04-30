@@ -4,6 +4,7 @@ from tkinter.filedialog import askopenfilename
 from PIL import Image, ImageTk
 from lat_lon import SatMap, GeoSegments, GeoPoint, GeoPoly
 import tkinter.simpledialog
+import geo
 
 class Viewer:
     def __init__(self, text_root):
@@ -25,9 +26,14 @@ def draw_point(event, sat_map, view):
     coordlist.append(x)
     coordlist.append(y)
     utm = sat_map.get_utm(x,y)
+    latlong = sat_map.get_lat_lon(x,y)
+    geostring = str(latlong[0]) + ', ' + str(latlong[1])
+    geo.attraction_info(geo.find_attraction(geostring))
+
     root = Tk()
     T = Text(root, height=2, width=40)
-    T.pack(side)
+    T.pack()
+    #T.pack(side)
     T.insert(END, list(utm))
     mainloop()
     return coordlist
