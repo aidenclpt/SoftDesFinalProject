@@ -6,6 +6,8 @@ from lat_lon import SatMap, GeoSegments, GeoPoint, GeoPoly
 import tkinter.simpledialog
 import geo
 
+Image.MAX_IMAGE_PIXELS = 250000000
+
 class Viewer:
     def __init__(self, text_root):
         self.points = None
