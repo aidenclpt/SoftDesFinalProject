@@ -36,7 +36,7 @@ def attraction_info(query_result):
                 image = Image.open(io.BytesIO(photo.data))
                 image.show()
                 num=num+1
-
+        return places
 if __name__ == "__main__":
     address=reverse_search(latlong)
     att=find_attraction(latlong)
