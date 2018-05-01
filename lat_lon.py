@@ -44,9 +44,7 @@ class SatMap:
         file_path = self.image_location
         print(file_path)
         im = cv2.imread(file_path)
-        """cv2.imshow('image',im)
-        cv2.waitkey(0)
-        cv2.killallwindows()"""
+
         self.image = im
         self.height = im.shape[0]
         self.width = im.shape[1]
@@ -72,6 +70,7 @@ class SatMap:
         """Creates a SatMap object based on a directory containing an image file,
         .wld file, ad .xml file (a "GIS Ready Bundle" as downlaoded from the USGS)"""
 
+
         self.directory = directory
         self.files = os.listdir(directory)
         if not os.path.exists(directory):
@@ -89,12 +88,12 @@ class SatMap:
 
         self.zone_number, self.zone_letter = self.parse_xml(self.xml_location)
         self.x_width, self.y_width, self.easting, self.northing = self.parse_wld(self.wld_location)
-
+        self.scale = self.height/1080
 
     def get_utm(self,x,y):
         """Returns the UTM coordinates for given pixel locations x and y in the
         image"""
-        self.scale = self.height/1080
+
         utm_easting = self.easting + x*self.x_width*self.scale
         utm_northing = self.northing + y*self.y_width*self.scale
 
@@ -104,7 +103,7 @@ class SatMap:
         """Returns lattitude and longitude coordinations for given pixel locations
         x and y in the image"""
 
-        self.scale = self.height/1080
+        
         utm_easting, utm_northing = self.get_utm(x,y)
         lat_lon = utm.to_latlon(utm_easting, utm_northing, self.zone_number, self.zone_letter)
 
