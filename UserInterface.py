@@ -32,10 +32,10 @@ def generate_image(view):
     view.image = view.original.resize((int(view.hsize*view.scale),int(view.vsize*view.scale)), Image.ANTIALIAS)
 
     img =ImageTk.PhotoImage(view.image)
+    print(type(img))
     print('hi')
     view.tkimage = w.create_image(int(view.x), int(view.y), image=img, anchor="nw")
 
-    
     mainloop()
 
 def zoom(event, sat_map, view, scale):
@@ -174,16 +174,6 @@ root.title("Draw Some Points!")
 current_segments = GeoSegments([])
 current_poly = GeoPoly([])
 
-#image.thumbnail(size, Image.ANTIALIAS)
 
-
-#w.config(font=("Ariel", 18, 'bold'))
-
-
-
-# w.bind("<ButtonPress-1>", lambda event: draw_poly(event, sat_image, current_poly))
-
-# find path and subtract image name to get parent direcrtory.  make variable name.
-    # label1 = Label(w, text='x"\n"y', bd=1, relief="solid", font="Times 32", width=15, height=4, anchor=SW)
 generate_image(current_view)
 root.mainloop()
