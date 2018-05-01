@@ -7,7 +7,7 @@ YOUR_API_KEY = 'AIzaSyDQBb_fJ3Ppby0et4BAHtj-0Lvtpd97Dc0'
 geolocator = Nominatim()
 latlong="42,-71"
 window = tk.Tk()
-root = tk.Tk()
+geo_root = tk.Tk()
 
 
 def reverse_search(latlong):
@@ -44,7 +44,7 @@ def attraction_info(query_result):
                     info=str(place.vicinity)+str(place.rating)
                 photo.get(maxheight=500, maxwidth=500)
                 window.title(str(place.name))
-                w = tk.Label(root, text=info)
+                w = tk.Label(geo_root, text=info)
                 window.geometry("300x300")
                 window.configure(background='grey')
                 img = ImageTk.PhotoImage(Image.open(io.BytesIO(photo.data)))
@@ -52,7 +52,7 @@ def attraction_info(query_result):
                 panel.pack(side = "bottom", fill = "both", expand = "yes")
                 num=num+1
         w.pack()
-        root.mainloop()
+        geo_root.mainloop()
         return place
 if __name__ == "__main__":
     address=reverse_search(latlong)
