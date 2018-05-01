@@ -15,6 +15,26 @@ class Viewer:
         self.polygon = None
         self.T = Text(text_root, height=2, width=30)
         self.T.pack(side = RIGHT)
+        self.image = None
+
+def generate_image(center, scale, view):
+
+    wpercent = (1080/float(view.image.size[1]))
+    hsize = int((float(view.image.size[0])*float(wpercent)))
+
+    view.image = view.image.resize((hsize,1080), Image.ANTIALIAS)
+
+    img =ImageTk.PhotoImage(view.image)
+
+    return img
+    #w.create_image(0, 0, image=img, anchor="nw")
+
+def zoom_in(event, sat_map, view):
+    factor = 1.01
+    x = event.x
+    y = event.y
+
+    time.sleep(0.05)
 
 
 def draw_point(event, sat_map, view):
@@ -84,36 +104,40 @@ def draw_poly(event, sat_map, polygon):
 
 #setting up window
 root = Tk()
-#text_root = Tk()
-
-
-
-
+text_root = Tk()
 
 File = askopenfilename(parent=root, initialdir="./", title='Select an image')
 original = Image.open(File)
-#original = original.thumbnail((1440,1080), Image.ANTIALIAS)
 wpercent = (1080/float(original.size[1]))
 hsize = int((float(original.size[0])*float(wpercent)))
 original = original.resize((hsize,1080), Image.ANTIALIAS)
+current_view = Viewer(text_root)
+
+if current_view.image == None:
+
+    current_view.image = original
+
 
 parentDir = str(File)
 parentDir = parentDir.rsplit('/', 1)[0]
 sat_image = SatMap(parentDir  +'/')
 
 w = Canvas(root, width = 1080/sat_image.height * sat_image.width, height=1080, cursor="target")
-text_root = Tk()
+
 text_root.title("Line Segment Length")
-current_view = Viewer(text_root)
+
 w.pack(expand=YES, fill=BOTH)
+img = generate_image((0,0), 1, current_view)
+
+
+w.create_image(0, 0, image=img, anchor="nw")
 
 root.title("Draw Some Points!")
 current_segments = GeoSegments([])
 current_poly = GeoPoly([])
 
 #image.thumbnail(size, Image.ANTIALIAS)
-img =ImageTk.PhotoImage(original)
-w.create_image(0, 0, image=img, anchor="nw")
+
 
 #w.config(font=("Ariel", 18, 'bold'))
 
