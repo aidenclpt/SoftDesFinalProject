@@ -9,57 +9,74 @@ import geo
 Image.MAX_IMAGE_PIXELS = 250000000
 
 class Viewer:
-    def __init__(self, text_root):
+    def __init__(self, main_root, text_root, image_file):
+
+        original = Image.open(image_file)
+        wpercent = (1080/float(original.size[1]))
+        self.hsize = int((float(original.size[0])*float(wpercent)))
+        self.vsize = 1080
+        self.original = original.resize((self.hsize,1080), Image.ANTIALIAS)
+
+        parentDir = str(image_file)
+        self.parentDir = parentDir.rsplit('/', 1)[0]
+        self.sat_image = SatMap(self.parentDir  +'/')
+
+        self.w = Canvas(main_root, width = 1080/self.sat_image.height * self.sat_image.width, height=1080, cursor="target")
+        self.w.pack(expand=YES, fill=BOTH)
         self.points = None
         self.lines = None
         self.polygon = None
         self.T = Text(text_root, height=2, width=30)
         self.T.pack(side = RIGHT)
-        self.image = None
+
         self.x = 0
         self.y = 0
         self.scale = 1
-        self.vsize = 1080
-        self.hsize = None
-        self.tkimage = None
-        self.started = False
 
-def generate_image(view, w):
+        self.image = self.original
+        self.tkimage = self.w.create_image(int(self.x), int(self.y), image=ImageTk.PhotoImage(self.image), anchor="nw")
 
-    # w.delete(view.tkimage)
-    wpercent = (1080/float(view.image.size[1]))
-    hsize = int((float(view.image.size[0])*float(wpercent)))
+        self.w.bind("<Button-4>", lambda event: self.update_image(event, 0.95))
+        self.w.bind("<Button-5>", lambda event: self.update_image(event, 1.05))
+        self.w.bind("<Button-3>", lambda event: self.raw_point(event))
+        self.w.bind("<B1-Motion>", lambda event:self.draw_segments(event))
 
-    view.image = view.original.resize((int(view.hsize*view.scale),int(view.vsize*view.scale)), Image.ANTIALIAS)
+    def update_image(view, w):
 
-    img =ImageTk.PhotoImage(view.image)
-    # print(img)
+        self.w.itemconfig(self.tkimage, image = ImageTk.PhotoImage(self.image))
+        # w.delete(view.tkimage)
 
 
-    if not view.started:
-        view.tkimage = w.create_image(int(view.x), int(view.y), image=img, anchor="nw")
-        print(view.tkimage)
-        view.started = True
-        mainloop()
-    else:
-        print(view.tkimage)
-        w.itemconfig(view.tkimage, image = img)
+        # view.image = view.original.resize((int(view.hsize*view.scale),int(view.vsize*view.scale)), Image.ANTIALIAS)
+        #
+        #
+        # # print(img)
+        #
+        #
+        # if not view.started:
+        #
+        #     print(view.tkimage)
+        #     view.started = True
+        #     mainloop()
+        # else:
+        #     print(view.tkimage)
+        #     w.itemconfig(view.tkimage, image = img)
+        #
+        #
+        # #mainloop()
 
 
-    #mainloop()
+    def zoom(event, sat_map, view, w, scale):
 
+        view.scale = view.scale * scale
+        sat_map.scale = sat_map.scale/scale
+        dx = (event.x - view.hsize/2)*(scale-1)
+        dy = (event.y - view.vsize/2)*(scale-1)
+        view.x = view.x - dx
+        view.y = view.y - dy
+        print(view.scale)
 
-def zoom(event, sat_map, view, w, scale):
-
-    view.scale = view.scale * scale
-    sat_map.scale = sat_map.scale/scale
-    dx = (event.x - view.hsize/2)*(scale-1)
-    dy = (event.y - view.vsize/2)*(scale-1)
-    view.x = view.x - dx
-    view.y = view.y - dy
-    print(view.scale)
-
-    generate_image(view, w)
+        self.update_image()
 
 
 
@@ -142,46 +159,16 @@ root = Tk()
 text_root = Tk()
 
 File = askopenfilename(parent=root, initialdir="../", title='Select an image')
-original = Image.open(File)
-wpercent = (1080/float(original.size[1]))
-hsize = int((float(original.size[0])*float(wpercent)))
-original = original.resize((hsize,1080), Image.ANTIALIAS)
-
-
-current_view = Viewer(text_root)
-current_view.hsize = hsize
-
-
-current_view.image = original
-current_view.original = original
-
-
-parentDir = str(File)
-parentDir = parentDir.rsplit('/', 1)[0]
-sat_image = SatMap(parentDir  +'/')
-
-w = Canvas(root, width = 1080/sat_image.height * sat_image.width, height=1080, cursor="target")
 
 text_root.title("Line Segment Length")
 
-
-w.bind("<Button-4>", lambda event: zoom(event, sat_image, current_view, w, 0.95))
-w.bind("<Button-5>", lambda event: zoom(event, sat_image, current_view, w, 1.05))
-w.bind("<Button-3>", lambda event: draw_point(event, sat_image, current_view))
-w.bind("<B1-Motion>", lambda event: draw_segments(event, sat_image, current_segments, current_view))
 #w.bind("<ButtonPress-1>", lambda event: draw_poly(event, sat_image, current_view, current_poly))
 
-w.pack(expand=YES, fill=BOTH)
 
-
-print('hi')
-
-
+current_view = Viewer(root, text_root, File)
 #w.create_image(current_view.x, current_view.y, image=img, anchor="nw")
 
 root.title("Draw Some Points!")
 current_segments = GeoSegments([])
 current_poly = GeoPoly([])
-# root.mainloop()
-
-generate_image(current_view, w)
+root.mainloop()
