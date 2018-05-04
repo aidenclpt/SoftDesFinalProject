@@ -5,7 +5,7 @@
 
 #### Parsing metadata from satellite images and providing relevant information based on user inputs.
 
-## What does ur project do?
+## What does our project do?
 
 Our project is a tool for taking in satellite images in a "GIS ready bundle"
 (containing a .wld file and .xml file with image metadata, as would be
