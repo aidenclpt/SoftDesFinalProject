@@ -23,5 +23,7 @@ To run this program you will need to install numpy,googleplace,PIL,geopy.geocode
 
 [***Home***](https://rickyroze.github.io/SoftDesFinalProject/)
 
-[//]: # ![alt text](SoftDesFinalProject/docs/flowchart.png "Flowchart1")
+<!--
+![alt text](SoftDesFinalProject/docs/flowchart.png "Flowchart1")
+-->
 
