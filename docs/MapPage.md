@@ -6,9 +6,9 @@ After entering a search radius in meters, the program will give you the names of
 
 For example this image pops up as a local park in Plymouth County Massachusetts:
 
-![](./loc.png)
+![](./park.png)
 
-It also revelas the rating for the area (based on user reviews), for Plymouth County the rating is: 3.9/5 stars, the website for the park, and the specific address for the park.
+It also revelas the rating for the area (based on user reviews), for Plymouth County the rating is: 3.9/5 stars, the website for the park, (if applicable) and the specific address for the park.
 
 The same information can be found by clicking a different pixel in the satellite image and searching in a new area. 
 
