@@ -1,5 +1,5 @@
 # Homepage  
-**Pages:** | [GIS](https://rickyroze.github.io/SoftDesFinalProject/GIS "GIS info page") | [Map Page](https://rickyroze.github.io/SoftDesFinalProject/MapPage) | [Technical Page](https://rickyroze.github.io/SoftDesFinalProject/TechnicalPage) | [Results Page](https://rickyroze.github.io/SoftDesFinalProject/ResultsPage) |
+**Pages:** | [GIS](https://rickyroze.github.io/SoftDesFinalProject/GIS "GIS info page") | [Map Page](https://rickyroze.github.io/SoftDesFinalProject/MapPage) | [Technical Page](https://rickyroze.github.io/SoftDesFinalProject/TechnicalPage) | [Results Page](https://rickyroze.github.io/SoftDesFinalProject/ResultsPage) | [Our Story](https://rickyroze.github.io/SoftDesFinalProject/OurStory) |
 
 ## High level overview:
 
