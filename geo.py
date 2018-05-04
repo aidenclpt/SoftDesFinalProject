@@ -39,9 +39,10 @@ def attraction_info(query_result):
             # print(photo.data)
             if num<2:
                 if place.website:
-                    info=str(place.vicinity)+" ,"+str(place.website)+" ,"+str(place.rating)
+                    #info=str(place.vicinity)+"/n" +str(place.website)+ "/n" +str(place.rating)
+                    info="{}\n{}\n{}".format(str(place.vicinity),str(place.website),str(place.rating))
                 else:
-                    info=str(place.vicinity)+str(place.rating)
+                    info="{}\n{}".format(str(place.vicinity),str(place.rating))
                 photo.get(maxheight=500, maxwidth=500)
                 window.title(str(place.name))
                 w = tk.Label(root, text=info)
@@ -49,7 +50,7 @@ def attraction_info(query_result):
                 window.configure(background='grey')
                 img = ImageTk.PhotoImage(Image.open(io.BytesIO(photo.data)))
                 panel = tk.Label(window, image = img)
-                panel.pack(side = "bottom", fill = "both", expand = "yes")
+                panel.pack(side = "right", fill = "x", expand = "yes")
                 num=num+1
         w.pack()
         root.mainloop()
