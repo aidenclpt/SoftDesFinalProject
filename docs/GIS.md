@@ -1,4 +1,4 @@
-**Pages:** | [***Home***](https://rickyroze.github.io/SoftDesFinalProject/) | [Google Maps](https://rickyroze.github.io/SoftDesFinalProject/MapPage "Google Maps API page") | [Process and Implementation](https://rickyroze.github.io/SoftDesFinalProject/TechnicalPage "Technical Page") | [Results Page](https://rickyroze.github.io/SoftDesFinalProject/ResultsPage "Results") | [Our Story](https://rickyroze.github.io/SoftDesFinalProject/OurStory "Our Story") |
+**Pages:** | [***Home***](https://rickyroze.github.io/SoftDesFinalProject/) | [Google Maps](https://rickyroze.github.io/SoftDesFinalProject/MapPage "Google Maps API page") | [Process and Implementation](https://rickyroze.github.io/SoftDesFinalProject/TechnicalPage "Technical Page") | [Outcomes and Application](https://rickyroze.github.io/SoftDesFinalProject/ResultsPage "Results") | [Our Story](https://rickyroze.github.io/SoftDesFinalProject/OurStory "Our Story") |
 ### Geographic and Satellite Information
 + Shows before and after images of satellite image processed and not processed
 + Shows with color balance and without image
