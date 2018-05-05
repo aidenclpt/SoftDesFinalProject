@@ -1,4 +1,4 @@
-**Pages:** | [***Home***](https://rickyroze.github.io/SoftDesFinalProject/) |  [GIS](https://rickyroze.github.io/SoftDesFinalProject/GIS "GIS info page") | [Maps API Page](https://rickyroze.github.io/SoftDesFinalProject/MapPage "Google Maps API page") | [Technical Page](https://rickyroze.github.io/SoftDesFinalProject/TechnicalPage "Technical Page") | [Our Story](https://rickyroze.github.io/SoftDesFinalProject/OurStory "Our Story") |
+**Pages:** | [***Home***](https://rickyroze.github.io/SoftDesFinalProject/) |  [Geographic and Satellite Information](https://rickyroze.github.io/SoftDesFinalProject/GIS "GIS info page") | [Maps API Page](https://rickyroze.github.io/SoftDesFinalProject/MapPage "Google Maps API page") | [Technical Page](https://rickyroze.github.io/SoftDesFinalProject/TechnicalPage "Technical Page") | [Our Story](https://rickyroze.github.io/SoftDesFinalProject/OurStory "Our Story") |
 ### Results Page
 Possible Use Cases:
 + If you wanted to determine the size of a building or a field, you could outline the area on the satellite image and the area would be returned!
