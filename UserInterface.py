@@ -22,23 +22,34 @@ class Viewer:
         self.vsize = 1080
         self.hsize = None
         self.tkimage = None
+        self.started = False
 
-def generate_image(view):
+def generate_image(view, w):
 
-    w.delete(view.tkimage)
+    # w.delete(view.tkimage)
     wpercent = (1080/float(view.image.size[1]))
     hsize = int((float(view.image.size[0])*float(wpercent)))
 
     view.image = view.original.resize((int(view.hsize*view.scale),int(view.vsize*view.scale)), Image.ANTIALIAS)
 
     img =ImageTk.PhotoImage(view.image)
-    print(type(img))
-    print('hi')
-    view.tkimage = w.create_image(int(view.x), int(view.y), image=img, anchor="nw")
+    # print(img)
 
-    mainloop()
 
-def zoom(event, sat_map, view, scale):
+    if not view.started:
+        view.tkimage = w.create_image(int(view.x), int(view.y), image=img, anchor="nw")
+        print(view.tkimage)
+        view.started = True
+        mainloop()
+    else:
+        print(view.tkimage)
+        w.itemconfig(view.tkimage, image = img)
+
+
+    #mainloop()
+
+
+def zoom(event, sat_map, view, w, scale):
 
     view.scale = view.scale * scale
     sat_map.scale = sat_map.scale/scale
@@ -48,7 +59,7 @@ def zoom(event, sat_map, view, scale):
     view.y = view.y - dy
     print(view.scale)
 
-    generate_image(view)
+    generate_image(view, w)
 
 
 
@@ -102,8 +113,8 @@ def draw_segments(event, sat_map, segments, view):
     view.T.delete('1.0', END)
 
     view.T.insert(END, segments.length)
-    time.sleep(0.1)
-    mainloop()
+
+    #mainloop()
 
 def draw_poly(event, sat_map, view, polygon):
     FillColor = "#FF0000"
@@ -123,28 +134,26 @@ def draw_poly(event, sat_map, view, polygon):
     view.T = Text(root, height=2, width=40)
     view.T.pack()
     view.T.insert(END, area)
-    mainloop()
+    #mainloop()
 
 
 #setting up window
 root = Tk()
 text_root = Tk()
 
-File = askopenfilename(parent=root, initialdir="./", title='Select an image')
+File = askopenfilename(parent=root, initialdir="../", title='Select an image')
 original = Image.open(File)
 wpercent = (1080/float(original.size[1]))
 hsize = int((float(original.size[0])*float(wpercent)))
 original = original.resize((hsize,1080), Image.ANTIALIAS)
 
-try:
-    current_view.x
-except:
-    current_view = Viewer(text_root)
-    current_view.hsize = hsize
 
-if current_view.image == None:
-    current_view.image = original
-    current_view.original = original
+current_view = Viewer(text_root)
+current_view.hsize = hsize
+
+
+current_view.image = original
+current_view.original = original
 
 
 parentDir = str(File)
@@ -156,11 +165,11 @@ w = Canvas(root, width = 1080/sat_image.height * sat_image.width, height=1080, c
 text_root.title("Line Segment Length")
 
 
-w.bind("<Button-4>", lambda event: zoom(event, sat_image, current_view, 0.95))
-w.bind("<Button-5>", lambda event: zoom(event, sat_image, current_view, 1.05))
+w.bind("<Button-4>", lambda event: zoom(event, sat_image, current_view, w, 0.95))
+w.bind("<Button-5>", lambda event: zoom(event, sat_image, current_view, w, 1.05))
 w.bind("<Button-3>", lambda event: draw_point(event, sat_image, current_view))
 w.bind("<B1-Motion>", lambda event: draw_segments(event, sat_image, current_segments, current_view))
-w.bind("<ButtonPress-1>", lambda event: draw_poly(event, sat_image, current_view, current_poly))
+#w.bind("<ButtonPress-1>", lambda event: draw_poly(event, sat_image, current_view, current_poly))
 
 w.pack(expand=YES, fill=BOTH)
 
@@ -173,7 +182,6 @@ print('hi')
 root.title("Draw Some Points!")
 current_segments = GeoSegments([])
 current_poly = GeoPoly([])
+# root.mainloop()
 
-
-generate_image(current_view)
-root.mainloop()
+generate_image(current_view, w)
