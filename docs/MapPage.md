@@ -12,4 +12,10 @@ It also revelas the rating for the area (based on user reviews), for Plymouth Co
 
 The same information can be found by clicking a different pixel in the satellite image and searching in a new area. 
 
+The search radius can be adjusted, as well as the attraction searched for, in the code below, which is the Google Places code that searches the latitude and longitude in google to find specific information. 
+
+    query_result = google_places.nearby_search(
+        location = latlong, keyword='Park',
+        radius = 10000, types=[types.TYPE_PARK])
+
 [***Home***](https://rickyroze.github.io/SoftDesFinalProject/)
