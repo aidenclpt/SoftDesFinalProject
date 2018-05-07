@@ -6,8 +6,7 @@ import io
 YOUR_API_KEY = 'AIzaSyDQBb_fJ3Ppby0et4BAHtj-0Lvtpd97Dc0'
 geolocator = Nominatim()
 latlong="42,-71"
-window = tk.Tk()
-geo_root = tk.Tk()
+
 
 
 def reverse_search(latlong):
@@ -27,6 +26,8 @@ def find_attraction(latlong):
 
 def attraction_info(query_result):
     """For each google result, the program prints the address of the attraction, website, and rating. Then prints one photo per attraction mentioned. More photos can be printed by editing the statement if num<2."""
+    window = tk.Toplevel()
+    geo_root = tk.Toplevel()
     for place in query_result.places:
         num = 1
         place.get_details()
@@ -49,14 +50,19 @@ def attraction_info(query_result):
                 window.geometry("300x300")
                 window.configure(background='grey')
                 img = ImageTk.PhotoImage(Image.open(io.BytesIO(photo.data)))
+                print(type(img))
                 panel = tk.Label(window, image = img)
                 panel.pack(side = "right", fill = "x", expand = "yes")
                 num=num+1
         w.pack()
         geo_root.mainloop()
-        return place
+        # return
+        return img
 if __name__ == "__main__":
+    window = tk.Tk()
+    geo_root = tk.Tk()
+
     address=reverse_search(latlong)
     att=find_attraction(latlong)
-    z=attraction_info(att)
-    z
+    attraction_info(att, geo_root, window)
+    # z
