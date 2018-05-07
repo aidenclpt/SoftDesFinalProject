@@ -7,8 +7,17 @@ The next image demonstrates how a user can select a pixel in the image and have 
  in UTM.
  
 ![](./LocationsfromPoints.png)
-<!---
-This screenshot shows how a user can draw in paths and shapes to find distances and areas in real world dimensions!
--->
- 
+
+The gif below shows the program determining the length of a user input path.
+
+![](./length_demo.gif)
+
+The program can also extimate the area of an input polygon, as shown below.
+
+![](./area_demo.gif)
+
+Finally, this gif shows how a user can draw in paths and shapes to find distances and areas in real world dimensions!
+
+![](./api_demo.gif) 
+
 [***Home***](https://rickyroze.github.io/SoftDesFinalProject/)
