@@ -28,3 +28,5 @@ that the modules can also be used individually for a file selection GUI, an
 object-oriented approach to managing GIS metadata, and an interface with the
 Google Maps API.
 
+## Here is our Introductory Video!
+![](area_demo.mp4)
