@@ -1,7 +1,7 @@
 **Pages:** | [***Home***](https://rickyroze.github.io/SoftDesFinalProject/) | [Geographic and Satellite Information](https://rickyroze.github.io/SoftDesFinalProject/GIS "GIS info page") | [Google Maps](https://rickyroze.github.io/SoftDesFinalProject/MapPage "Google Maps API page") | [Outcomes and Application](https://rickyroze.github.io/SoftDesFinalProject/ResultsPage "Results") | [Our Story](https://rickyroze.github.io/SoftDesFinalProject/OurStory "Our Story") |
 ### Process and Implementation
 How the Program Works:
-+ The general flow of the program can be broken into three modules. The Image Processing, the Google Maps API, and the GUI. The flow of information goes from the Image Processing to the Maps API and ends in the GUI. Below we have broekn down each of those three modules to give you a better sense of what happens in each.
++ The general flow of the program can be broken into three modules. The Image Processing, the Google Maps API, and the GUI. The flow of information goes from the Image Processing to the Maps API and ends in the GUI. Below we have broken down each of those three modules to give you a better sense of what happens in each.
 
 Image Processing
 
@@ -17,7 +17,7 @@ GUI
 
 
 Implementation: 
-To run this program you will need to install numpy,googleplace,PIL,geopy.geocoders,cv2,utm,shapely. You can use the following commands to do so.
+To run this program you will need to install numpy, googleplace, PIL, geopy.geocoders, cv2, utm, shapely. You can use the following commands to do so.
 
     pip install numpy
     pip install python-google-places
