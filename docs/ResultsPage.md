@@ -19,7 +19,7 @@ The program can also extimate the area of an input polygon, as shown below.
 
 ![](./area_demo.gif)
 
-Finally, this gif shows how a user can draw in paths and shapes to attraction information and images of nearby parks!
+Finally, this gif shows how a user can click a point on the satellite image to find attraction information and images of nearby parks!
 
 ![](./api_demo.gif) 
 
