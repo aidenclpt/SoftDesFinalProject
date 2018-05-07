@@ -29,4 +29,4 @@ object-oriented approach to managing GIS metadata, and an interface with the
 Google Maps API.
 
 ## Here is our Introductory Video!
-![](area_demo.mp4)
+[![IMAGE ALT TEXT HERE](http://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)](http://www.youtube.com/watch?v=YOUTUBE_VIDEO_ID_HERE)
