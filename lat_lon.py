@@ -103,7 +103,7 @@ class SatMap:
         """Returns lattitude and longitude coordinations for given pixel locations
         x and y in the image"""
 
-        
+
         utm_easting, utm_northing = self.get_utm(x,y)
         lat_lon = utm.to_latlon(utm_easting, utm_northing, self.zone_number, self.zone_letter)
 
@@ -159,7 +159,8 @@ class GeoPoly:
 
     def get_area(self):
         self.area = 0
-        self.shapely_coords =list(self.shapely_coords)
+        self.shapely_coords = []
+        self.kinter_coords = []
         if len(self.point_list) >=3:
             for point in self.point_list:
                 self.kinter_coords.append(point.x)
@@ -170,7 +171,7 @@ class GeoPoly:
             self.shapely_coords = tuple(self.shapely_coords)
             self.poly = Polygon(self.shapely_coords)
             self.area = self.poly.area
-
+        print(self.shapely_coords)
         return self.area
 
 

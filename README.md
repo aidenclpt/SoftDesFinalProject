@@ -1,6 +1,6 @@
 # SoftDesFinalProject
 Satelite Image Processing
-By Aiden Carley-Clopton, Grace Montagnino, and Richard run_docstring_examples
+By Aiden Carley-Clopton, Grace Montagnino, and Richard Rose
 
 #Dependencies
  PIL, os, numpy, cv2, utm, shapely, python-google-places, geopy, tkinter
