@@ -38,7 +38,7 @@ A file selector will pop up and you will be asked to select an image to run the 
 
 After the GUI will pop up allowing you full access to the program! 
 
-+ Attributions: United States Geological Survey (USGS), Google Places API Documentation, Orbview3
+## Attributions: United States Geological Survey (USGS), Google Places API Documentation, Orbview3
 
 [***Home***](https://rickyroze.github.io/SoftDesFinalProject/)
 
