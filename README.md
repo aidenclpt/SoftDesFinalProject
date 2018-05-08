@@ -5,7 +5,7 @@ By Aiden Carley-Clopton, Grace Montagnino, and Richard Rose
 Please note that because this was a long term project, there have been several iterations and versions of this code. With this in mind, the only files relevant to the final product are: Final.py, geo.py, ui.py, latlong.py.
 Documentation can be found in the Documentation folder of this repository.
 
-[![Video Link](http://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)](http://www.youtube.com/watch?v=YOUTUBE_VIDEO_ID_HERE)
+[![Video Link](http://img.youtube.com/vi/-DHstD0oNrA/0.jpg)](http://www.youtube.com/watch?v=-DHstD0oNrA)
 
 
 Poster Link:
