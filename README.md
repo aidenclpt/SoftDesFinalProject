@@ -4,6 +4,12 @@ By Aiden Carley-Clopton, Grace Montagnino, and Richard Rose
 # Relevant Files
 Please note that because this was a long term project, there have been several iterations and versions of this code. With this in mind, the only files relevant to the final product are: Fianl.py, geo.py, ui.py, latlong.py.
 
+Video Link:
+[![IMAGE ALT TEXT HERE](http://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)](http://www.youtube.com/watch?v=YOUTUBE_VIDEO_ID_HERE)
+
+
+Poster Link:
+
 # The Program
 Our project is a tool for taking in satellite images in a “GIS ready bundle” (containing a .wld file and .xml file with image metadata, as would be downloaded from a source of satellite images, such as the USGS) and translating the size of features in the image to their size and location in the real world. Points, lines, and contours can be drawn in by the user to measure position, length, and area of features in the image. In addition, our code interfaces with the Google Maps API to find nearby features to coordinates selected in the image.
 
