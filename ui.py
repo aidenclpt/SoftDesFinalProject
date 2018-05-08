@@ -137,6 +137,8 @@ class Viewer():
         self.y = -self.corners[1]
         self.scale = self.scale * scale
         self.sat_image.scale = self.sat_image.scale/scale
+        self.sat_image.northing = self.sat_image.northing + self.y*self.scale*self.sat_image.y_width
+        self.sat_image.easting = self.sat_image.easting + self.x*self.scale*self.sat_image.x_width
 
 # Adjusting the zoom of all of the drawn points
         for i in range(len(self.points)):
@@ -216,7 +218,7 @@ class Viewer():
         for oval in self.ovals:
             self.w.delete(oval)
         self.ovals = []
-
+        self.points = []
 
         for vertex in self.vertices:
             self.w.delete(vertex)
@@ -234,9 +236,6 @@ class Viewer():
 
         self.w.delete(self.tkimage)
         self.scale = 1
-        # self.image = self.original
-        # self.photoim = ImageTk.PhotoImage(self.image)
-        # self.tkimage = self.w.create_image(0, 0, image=self.photoim, anchor=NW)
         self.x = 0
         self.y = 0
 
@@ -249,6 +248,7 @@ class Viewer():
         """Draws a point where the cursor is when right clicked, then pops up
         a window with the nearest park and with its name, website, rating, and
         address"""
+
 
         FillColor = "#FF0000"
         x1, y1 = (event.x - 2), (event.y - 2)
