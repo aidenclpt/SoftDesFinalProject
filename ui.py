@@ -44,12 +44,12 @@ class Viewer():
 
 # Initialize the windows to display measurements
         text_root_1 = Toplevel()
-        text_root_1.title("Line Segment Length")
+        text_root_1.title("Line Segment Length (m)")
         self.T = Text(text_root_1, height=2, width=40)
         self.T.pack(side = RIGHT)
 
         text_root_2 = Toplevel()
-        text_root_2.title("Polygon Area")
+        text_root_2.title("Polygon Area (m^2)")
         self.T2 = Text(text_root_2, height=2, width=40)
         self.T2.pack()
 
