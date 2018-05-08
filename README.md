@@ -1,15 +1,6 @@
 # Satelite Image Processing
 By Aiden Carley-Clopton, Grace Montagnino, and Richard Rose
 
-# Relevant Files
-Please note that because this was a long term project, there have been several iterations and versions of this code. With this in mind, the only files relevant to the final product are: Final.py, geo.py, ui.py, latlong.py.
-Documentation can be found in the Documentation folder of this repository.
-
-[![Video Link](http://img.youtube.com/vi/-DHstD0oNrA/0.jpg)](http://www.youtube.com/watch?v=-DHstD0oNrA)
-
-
-Poster Link:
-
 # The Program
 Our project is a tool for taking in satellite images in a “GIS ready bundle” (containing a .wld file and .xml file with image metadata, as would be downloaded from a source of satellite images, such as the USGS) and translating the size of features in the image to their size and location in the real world. Points, lines, and contours can be drawn in by the user to measure position, length, and area of features in the image. In addition, our code interfaces with the Google Maps API to find nearby features to coordinates selected in the image.
 
@@ -38,16 +29,23 @@ After the GUI will pop up allowing you full access to the program!
 # Image Repo
 The small to medium sized images in this project are stored in a second github
 repo. You can clone it here: https://github.com/aidenclpt/Final_Project_Image_Repo
-The file path in which you locate it doesn't matter, except for a line in
-image_load.py which references the landsat bands stored within it.
+The file path in which you locate it doesn't matter, but it is most convenient
+to access the images if it is in the same directory as this repo.
 
-# image_load.py
+# Usage
+After you run final.py, a file selection window will pop up. If you have our image
+repo cloned, navigate to Final_Project_Image_Repo/images_with_metadata/ and chose
+a folder other than results/ then double click on its .jpeg file to open it. If
+you are using your own files, make a directory which contains the image, its .wld
+file, and a .xml metadata file (the USGS Earth Explorer does this for you as a
+"GIS Ready Bundle").
 
-This file contains the functions used to make color images out of multiple
-channels obtained from satellite imagery. It balances the levels to account for
-the fact that raw sensor data provides very dim images. It creates a directory
-called "results" which will be ignored when committing to GitHub as to not clutter
-the repo with generated images.
+When you open a picture, it will pop up in a window and smaller windows will pop
+up displaying information about what you've drawn on the image. You can zoom in
+and out by scrolling. Right click drops a point, left click and drag draws a contour,
+and a single left click will drop the first point of a polygon, which will display
+after there are three points. When you drop a point with right click, it will pop
+up an image of the nearest park as well as some information about it.
 
 # Lisence
 MIT License
