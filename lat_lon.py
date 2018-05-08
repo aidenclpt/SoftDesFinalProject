@@ -1,3 +1,5 @@
+# Creates SatMap, GeoPoint, GeoLine, and GeoSegments bojects for the measurement
+# of real distances from satellite photos and metadata files
 import cv2
 import numpy as np
 import utm
@@ -26,6 +28,7 @@ class SatMap:
     def parse_xml(self,xml_location):
         """Reads the .xml metadata file to find the UTM zone number and letter
         of the image"""
+
         xml = open(xml_location)
         xml.readline()
         words = str(xml.readline()).split(' ')
@@ -38,7 +41,7 @@ class SatMap:
 
         return int(zone_number), zone_letter
 
-    def load_image(self, brightness = 20):
+    def load_image(self, brightness = 0):
         """Takes in a file path and returns a numpy array containing a list of pixel values
         for each band in the list"""
         file_path = self.image_location
@@ -49,32 +52,14 @@ class SatMap:
         self.height = im.shape[0]
         self.width = im.shape[1]
         self.num_channels = im.shape[2]
-        self.utm_map = np.zeros((self.height,self.width,2))
-        self.lat_lon_map = np.zeros((self.height,self.width,2))
-
-        channels = cv2.split(im)
-        res = []
-
-        for channel in channels:
-            if sum(channel)[0] > 0:
-                res.append(cv2.equalizeHist(channel))
-
-        equalized = np.zeros((im.shape[0], im.shape[1], len(res)))
-
-        for i in range(equalized.shape[2]):
-            equalized[:,:,i] = res[i] + brightness
-
-        cv2.imwrite(self.directory + '/results/test.jpg',im)
 
     def __init__(self,directory):
         """Creates a SatMap object based on a directory containing an image file,
-        .wld file, ad .xml file (a "GIS Ready Bundle" as downlaoded from the USGS)"""
+        .wld file, and .xml file (a "GIS Ready Bundle" as downlaoded from the USGS)"""
 
 
         self.directory = directory
         self.files = os.listdir(directory)
-        if not os.path.exists(directory):
-            os.makedirs(directory + '/results')
 
         for file_name in self.files:
             if '.wld' in str(file_name):
@@ -171,7 +156,6 @@ class GeoPoly:
             self.shapely_coords = tuple(self.shapely_coords)
             self.poly = Polygon(self.shapely_coords)
             self.area = self.poly.area
-        print(self.shapely_coords)
         return self.area
 
 

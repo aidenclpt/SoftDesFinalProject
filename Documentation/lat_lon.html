@@ -1,0 +1,169 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module lat_lon</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>lat_lon</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/home/aiden/SoftDesFinalProject/lat_lon.py">/home/aiden/SoftDesFinalProject/lat_lon.py</a></font></td></tr></table>
+    <p><tt>#&nbsp;Creates&nbsp;<a href="#SatMap">SatMap</a>,&nbsp;<a href="#GeoPoint">GeoPoint</a>,&nbsp;<a href="#GeoLine">GeoLine</a>,&nbsp;and&nbsp;<a href="#GeoSegments">GeoSegments</a>&nbsp;bojects&nbsp;for&nbsp;the&nbsp;measurement<br>
+#&nbsp;of&nbsp;real&nbsp;distances&nbsp;from&nbsp;satellite&nbsp;photos&nbsp;and&nbsp;metadata&nbsp;files</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="cv2.cv2.html">cv2.cv2</a><br>
+</td><td width="25%" valign=top><a href="numpy.html">numpy</a><br>
+</td><td width="25%" valign=top><a href="os.html">os</a><br>
+</td><td width="25%" valign=top><a href="utm.html">utm</a><br>
+</td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ee77aa">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Classes</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl>
+<dt><font face="helvetica, arial"><a href="builtins.html#object">builtins.object</a>
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="lat_lon.html#GeoLine">GeoLine</a>
+</font></dt><dt><font face="helvetica, arial"><a href="lat_lon.html#GeoPoint">GeoPoint</a>
+</font></dt><dt><font face="helvetica, arial"><a href="lat_lon.html#GeoPoly">GeoPoly</a>
+</font></dt><dt><font face="helvetica, arial"><a href="lat_lon.html#GeoSegments">GeoSegments</a>
+</font></dt><dt><font face="helvetica, arial"><a href="lat_lon.html#SatMap">SatMap</a>
+</font></dt></dl>
+</dd>
+</dl>
+ <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="GeoLine">class <strong>GeoLine</strong></a>(<a href="builtins.html#object">builtins.object</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>A&nbsp;line&nbsp;connecting&nbsp;two&nbsp;GeoPoints&nbsp;with&nbsp;length&nbsp;in&nbsp;both&nbsp;pixel&nbsp;units&nbsp;and&nbsp;meters<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="GeoLine-__init__"><strong>__init__</strong></a>(self, point1, point2)</dt><dd><tt>Initialize&nbsp;self.&nbsp;&nbsp;See&nbsp;help(type(self))&nbsp;for&nbsp;accurate&nbsp;signature.</tt></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="GeoPoint">class <strong>GeoPoint</strong></a>(<a href="builtins.html#object">builtins.object</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>A&nbsp;point&nbsp;representing&nbsp;a&nbsp;physical&nbsp;location&nbsp;in&nbsp;a&nbsp;satellite&nbsp;image,&nbsp;located<br>
+with&nbsp;pixel&nbsp;location,&nbsp;UTM&nbsp;coordinates,&nbsp;and&nbsp;lat-lon&nbsp;coordinates<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="GeoPoint-__init__"><strong>__init__</strong></a>(self, map, x, y, size=10, scale=1)</dt><dd><tt>makes&nbsp;a&nbsp;GoePoint&nbsp;<a href="builtins.html#object">object</a>&nbsp;at</tt></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="GeoPoly">class <strong>GeoPoly</strong></a>(<a href="builtins.html#object">builtins.object</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>A&nbsp;polygon&nbsp;made&nbsp;up&nbsp;of&nbsp;GeoPoints&nbsp;used&nbsp;to&nbsp;find&nbsp;the&nbsp;length&nbsp;of&nbsp;complex&nbsp;paths&nbsp;and<br>
+the&nbsp;area&nbsp;of&nbsp;complex&nbsp;shapes<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="GeoPoly-__init__"><strong>__init__</strong></a>(self, point_list)</dt><dd><tt>Initialize&nbsp;self.&nbsp;&nbsp;See&nbsp;help(type(self))&nbsp;for&nbsp;accurate&nbsp;signature.</tt></dd></dl>
+
+<dl><dt><a name="GeoPoly-get_area"><strong>get_area</strong></a>(self)</dt></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="GeoSegments">class <strong>GeoSegments</strong></a>(<a href="builtins.html#object">builtins.object</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>A&nbsp;series&nbsp;of&nbsp;segments&nbsp;meant&nbsp;to&nbsp;approximate&nbsp;a&nbsp;non-linear&nbsp;path&nbsp;drawn&nbsp;by&nbsp;the<br>
+user,&nbsp;primarily&nbsp;in&nbsp;order&nbsp;to&nbsp;find&nbsp;it's&nbsp;length<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="GeoSegments-__init__"><strong>__init__</strong></a>(self, point_list)</dt><dd><tt>Initialize&nbsp;self.&nbsp;&nbsp;See&nbsp;help(type(self))&nbsp;for&nbsp;accurate&nbsp;signature.</tt></dd></dl>
+
+<dl><dt><a name="GeoSegments-get_length"><strong>get_length</strong></a>(self)</dt></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="SatMap">class <strong>SatMap</strong></a>(<a href="builtins.html#object">builtins.object</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>Object&nbsp;containing&nbsp;image&nbsp;of&nbsp;a&nbsp;map&nbsp;containing&nbsp;the&nbsp;UTM&nbsp;and&nbsp;Lat-Lon<br>
+coordinates&nbsp;of&nbsp;each&nbsp;pixel<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="SatMap-__init__"><strong>__init__</strong></a>(self, directory)</dt><dd><tt>Creates&nbsp;a&nbsp;<a href="#SatMap">SatMap</a>&nbsp;<a href="builtins.html#object">object</a>&nbsp;based&nbsp;on&nbsp;a&nbsp;directory&nbsp;containing&nbsp;an&nbsp;image&nbsp;file,<br>
+.wld&nbsp;file,&nbsp;and&nbsp;.xml&nbsp;file&nbsp;(a&nbsp;"GIS&nbsp;Ready&nbsp;Bundle"&nbsp;as&nbsp;downlaoded&nbsp;from&nbsp;the&nbsp;USGS)</tt></dd></dl>
+
+<dl><dt><a name="SatMap-get_lat_lon"><strong>get_lat_lon</strong></a>(self, x, y)</dt><dd><tt>Returns&nbsp;lattitude&nbsp;and&nbsp;longitude&nbsp;coordinations&nbsp;for&nbsp;given&nbsp;pixel&nbsp;locations<br>
+x&nbsp;and&nbsp;y&nbsp;in&nbsp;the&nbsp;image</tt></dd></dl>
+
+<dl><dt><a name="SatMap-get_utm"><strong>get_utm</strong></a>(self, x, y)</dt><dd><tt>Returns&nbsp;the&nbsp;UTM&nbsp;coordinates&nbsp;for&nbsp;given&nbsp;pixel&nbsp;locations&nbsp;x&nbsp;and&nbsp;y&nbsp;in&nbsp;the<br>
+image</tt></dd></dl>
+
+<dl><dt><a name="SatMap-load_image"><strong>load_image</strong></a>(self, brightness=0)</dt><dd><tt>Takes&nbsp;in&nbsp;a&nbsp;file&nbsp;path&nbsp;and&nbsp;returns&nbsp;a&nbsp;numpy&nbsp;array&nbsp;containing&nbsp;a&nbsp;list&nbsp;of&nbsp;pixel&nbsp;values<br>
+for&nbsp;each&nbsp;band&nbsp;in&nbsp;the&nbsp;list</tt></dd></dl>
+
+<dl><dt><a name="SatMap-parse_wld"><strong>parse_wld</strong></a>(self, wld_location)</dt><dd><tt>Reads&nbsp;a&nbsp;.wld&nbsp;file&nbsp;in&nbsp;and&nbsp;esxtracts&nbsp;the&nbsp;information&nbsp;needed&nbsp;to&nbsp;describe<br>
+the&nbsp;an&nbsp;images's&nbsp;location&nbsp;in&nbsp;the&nbsp;world&nbsp;using&nbsp;UTM</tt></dd></dl>
+
+<dl><dt><a name="SatMap-parse_xml"><strong>parse_xml</strong></a>(self, xml_location)</dt><dd><tt>Reads&nbsp;the&nbsp;.xml&nbsp;metadata&nbsp;file&nbsp;to&nbsp;find&nbsp;the&nbsp;UTM&nbsp;zone&nbsp;number&nbsp;and&nbsp;letter<br>
+of&nbsp;the&nbsp;image</tt></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table></td></tr></table>
+</body></html>
