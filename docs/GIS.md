@@ -1,9 +1,6 @@
 **Pages:** | [***Home***](https://rickyroze.github.io/SoftDesFinalProject/) | [Google Maps](https://rickyroze.github.io/SoftDesFinalProject/MapPage "Google Maps API page") | [Process and Implementation](https://rickyroze.github.io/SoftDesFinalProject/TechnicalPage "Technical Page") | [Outcomes and Application](https://rickyroze.github.io/SoftDesFinalProject/ResultsPage "Results") | [Our Story](https://rickyroze.github.io/SoftDesFinalProject/OurStory "Our Story") |
 ### Geographic and Satellite Information
-+ Shows before and after images of satellite image processed and not processed
-+ Shows with color balance and without image
-+ Snippets of code to show what is being done to image
-+ Shows how each pixel is mapped to a latitude/longitude
+
 
 The GIS portion of our code starts by parsing metadata. A world file (.wld) looks like this
 
