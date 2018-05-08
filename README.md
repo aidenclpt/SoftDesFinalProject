@@ -1,6 +1,16 @@
 # Satelite Image Processing
 By Aiden Carley-Clopton, Grace Montagnino, and Richard Rose
 
+# Relevant Code
+Please be aware that this was an extended project and therefore the git contains many interations and versions of our code. The only files relevant to our final project are: Final.py, geo.py, ui.py, latlong.py
+
+Poster Link-
+https://drive.google.com/file/d/1MmrroMzZxcHdixZavpmmPLCfeQ8u0pCN/view?usp=sharing
+
+Video-
+
+[![Video Link](http://img.youtube.com/vi/-DHstD0oNrA/0.jpg)](http://www.youtube.com/watch?v=-DHstD0oNrA)
+
 # The Program
 Our project is a tool for taking in satellite images in a “GIS ready bundle” (containing a .wld file and .xml file with image metadata, as would be downloaded from a source of satellite images, such as the USGS) and translating the size of features in the image to their size and location in the real world. Points, lines, and contours can be drawn in by the user to measure position, length, and area of features in the image. In addition, our code interfaces with the Google Maps API to find nearby features to coordinates selected in the image.
 
@@ -45,7 +55,9 @@ up displaying information about what you've drawn on the image. You can zoom in
 and out by scrolling. Right click drops a point, left click and drag draws a contour,
 and a single left click will drop the first point of a polygon, which will display
 after there are three points. When you drop a point with right click, it will pop
-up an image of the nearest park as well as some information about it.
+up an image of the nearest park as well as some information about it. You can all of
+your drawings and re-center the image by clicking middle-mouse (sometimes it takes 
+a few quick clicks).
 
 # Lisence
 MIT License
